@@ -1,4 +1,5 @@
 const tableBody = document.getElementById('output');
+const loading = document.getElementByID('loading');
 const promise=[
 	createPromise(1),
 	createPromise(2),
@@ -14,7 +15,7 @@ function createPromise(index){
 }
 
 Promise.all(promise).then((result)=>{
-	tableBody.innerHTML= ""; 
+	loading.textContent = ""; 
 	 let totalTime = 0;
 	result.forEach((result) =>{
 		totalTime += result.time;
