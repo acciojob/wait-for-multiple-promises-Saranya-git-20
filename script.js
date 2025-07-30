@@ -1,5 +1,4 @@
 const tableBody = document.getElementById('output');
-const loading = document.getElementByID('loading');
 const promise=[
 	createPromise(1),
 	createPromise(2),
@@ -15,7 +14,8 @@ function createPromise(index){
 }
 
 Promise.all(promise).then((result)=>{
-	loading.textContent = ""; 
+	 const loadingRow = document.getElementById('loading');
+	if (loadingRow) loadingRow.remove();
 	 let totalTime = 0;
 	result.forEach((result) =>{
 		totalTime += result.time;
